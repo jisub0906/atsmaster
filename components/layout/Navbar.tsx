@@ -126,10 +126,10 @@ export default function Navbar() {
           ) : (
             // 비로그인 상태: 로그인/회원가입 버튼
             <>
-              <Link href="/auth/login">
+              <Link href="/login">
                 <Button variant="outline" size="sm">로그인</Button>
               </Link>
-              <Link href="/auth/signup" className="ml-2">
+              <Link href="/signup" className="ml-2">
                 <Button variant="default" size="sm">회원가입</Button>
               </Link>
             </>
@@ -174,10 +174,10 @@ export default function Navbar() {
                       </Button>
                     ) : (
                       <>
-                        <Link href="/auth/login" onClick={() => setMobileMenuOpen(false)}>
+                        <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
                           <Button variant="outline" size="sm" className="w-full">로그인</Button>
                         </Link>
-                        <Link href="/auth/signup" onClick={() => setMobileMenuOpen(false)}>
+                        <Link href="/signup" onClick={() => setMobileMenuOpen(false)}>
                           <Button variant="default" size="sm" className="w-full mt-2">회원가입</Button>
                         </Link>
                       </>

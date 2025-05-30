@@ -91,7 +91,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
         // 이메일 확인 필요 (MVP 가정)
         if (data.user && !data.session) {
           toast.info("회원가입 확인 메일이 발송되었습니다. 이메일을 확인해주세요.");
-          router.push("/auth/login");
+          router.push("/login");
         } else {
           router.push("/dashboard");
         }
@@ -161,11 +161,11 @@ export default function AuthForm({ mode }: AuthFormProps) {
           </Button>
           <div className="mt-2 text-center">
             {mode === "login" ? (
-              <Link href="/auth/signup" className="text-sm text-muted-foreground hover:underline">
+              <Link href="/signup" className="text-sm text-muted-foreground hover:underline">
                 계정이 없으신가요? 회원가입
               </Link>
             ) : (
-              <Link href="/auth/login" className="text-sm text-muted-foreground hover:underline">
+              <Link href="/login" className="text-sm text-muted-foreground hover:underline">
                 이미 계정이 있으신가요? 로그인
               </Link>
             )}

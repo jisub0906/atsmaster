@@ -11,7 +11,7 @@ export async function GET(request: Request) {
 
   if (!code) {
     console.error('No code found in callback URL.');
-    return NextResponse.redirect(new URL('/auth/login?error=auth_callback_no_code', request.url));
+    return NextResponse.redirect(new URL('/login?error=auth_callback_no_code', request.url));
   }
 
   try {
@@ -20,13 +20,13 @@ export async function GET(request: Request) {
     const { error } = await supabase.auth.exchangeCodeForSession(code);
     if (error) {
       console.error('Failed to exchange code for session:', error.message);
-      return NextResponse.redirect(new URL('/auth/login?error=auth_callback_failed', request.url));
+      return NextResponse.redirect(new URL('/login?error=auth_callback_failed', request.url));
     }
     // 성공 시 next 파라미터가 있으면 해당 경로로, 없으면 /dashboard로 이동
     const redirectTo = nextUrl && nextUrl.startsWith('/') ? nextUrl : '/dashboard';
     return NextResponse.redirect(new URL(redirectTo, request.url));
   } catch (err) {
     console.error('Unexpected error during auth callback:', err);
-    return NextResponse.redirect(new URL('/auth/login?error=auth_callback_exception', request.url));
+    return NextResponse.redirect(new URL('/login?error=auth_callback_exception', request.url));
   }
 } 

@@ -52,12 +52,12 @@ export default function HomePage() {
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
         className="flex flex-col sm:flex-row gap-4 justify-center"
       >
-        <Link href="/auth/signup">
+        <Link href="/signup">
           <Button variant="default" size="lg" className="w-48">
             지금 시작하기
           </Button>
         </Link>
-        <Link href="/auth/login">
+        <Link href="/login">
           <Button variant="outline" size="lg" className="w-48">
             로그인
           </Button>
